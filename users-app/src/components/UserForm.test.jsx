@@ -21,7 +21,8 @@ describe("When evrything is OK", () => {
 
     render(<UserForm onAddUser={mock} />);
 
-    const [nameInput, emailInput] = screen.getAllByRole("textbox");
+    const nameInput = screen.getByRole("textbox", { name: /name/i });
+    const emailInput = screen.getByLabelText(/email/i);
 
     userEvent.click(nameInput);
     userEvent.keyboard("John Doe");
